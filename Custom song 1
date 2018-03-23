@@ -1,0 +1,164 @@
+batman = [:a2,:d3,:e3,:a3]
+wonder = [:e4,:g4,:b4,:Bb4,:g4,:b4,:g4,:b4,:g4,:b4,:Bb4,:g4,:b4,:g4,:b4,:g4,:b4,:b4,:g4,:b4,:g4,:b4,:g4,:Bb4,]
+batman2 = [:a2,:d3,:e3,:c4]
+manofsteel = [:b3,:c4,:d4,:c4,:b3,:c4,:d4,:e4,:d4,:c4,:b3,:c4,:b3,:a3,:b3,:b3,:c4:,:d4,:c4,:d4,:c4,:b3,:c4,:d4]
+slept = [0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,1]
+wait = [0.25,0.25,0.25,0.25,]
+build = "C:/Users/malakhye_shine/Desktop/joker.wav"
+dank_knight = "C:/Users/malakhye_shine/Desktop/dank_knight.wav"
+wwoman = "C:/Users/malakhye_shine/Desktop/wonderwoman.wav"
+index = 0
+=begin
+live_loop:dark_knight do
+  play:d4,decay:1,amp:1
+  play:a4,decay:1,amp:1
+  play:d5,decay:1,amp:1
+  sleep 2
+  play:a3,decay:1,amp:1
+  play:e4,decay:1,amp:1
+  play:f4,decay:1,amp:1
+  sleep 2
+  play:d4,decay:1,amp:1
+  play:e4,decay:1,amp:1
+  play:d5,decay:1,amp:1
+  play:b4,decay:1,amp:1
+  sleep 2
+  play:b3,decay:1,amp:1
+  play:d4,decay:1,amp:1
+  play:g4,decay:1,amp:1
+  sleep 2
+  play:g4,decay:1,amp:1
+  play:c5,decay:1,amp:1
+  play:g5,decay:1,amp:1
+  sleep 2
+  play:c4,decay:1,amp:1
+  play:f4,decay:1,amp:1
+  play:a4,decay:1,amp:1
+  sleep 2
+  play:c5,decay:1,amp:1
+  play:a4,decay:1,amp:1
+  play:a5,decay:1,amp:1
+  play:f5,decay:1,amp:1
+  sleep 2
+  play:f4,decay:1,amp:1
+  play:a4,decay:1,amp:1
+  play:d5,decay:1,amp:1
+  sleep 10000000
+end
+8.times do
+  4.times do
+    play batman[index]
+    sleep wait[index]
+    index = index+1
+  end
+  index = 0
+end
+8.times do
+  4.times do
+    play batman2[index]
+    sleep wait[index]
+    index = index+1
+  end
+  index = 0
+end
+
+live_loop:joker_build do
+  sample build,amp:2
+  sleep 10000
+end
+live_loop:dank_knight do
+  sleep 43
+  sample dank_knight,amp:1
+  sleep 10000
+end
+sleep 150
+
+use_bpm 80
+live_loop:wonder do
+  24.times do
+    play wonder[index]
+    sleep slept[index]
+    index=index+1
+  end
+  index=0
+  play:b4, decay:1
+  sleep 100000
+end
+define:wwbass do
+  3.times do
+    play:e1
+    play:e2
+    sleep 0.5
+  end
+  1.times do
+    play:d2
+    play:d1
+    sleep 0.25
+    play:e1
+    play:e2
+    sleep 0.5
+  end
+  2.times do
+    play:e1
+    play:e2
+    sleep 0.5
+  end
+  1.times do
+    play:d2
+    play:d1
+    sleep 0.25
+  end
+end
+1.times do
+  sleep 1
+  play wwbass
+  sleep 0.25
+end
+1.times do
+  play wwbass
+  sleep 0.25
+end
+live_loop:wonderwoman do
+  3.times do
+    play:b4
+    play:b3
+    sleep 0.5
+  end
+  play:a2
+  play:a3
+  sleep 0.25
+  play:b2
+  play:b3
+  sleep 0.5
+  3.times do
+    play:b4
+    play:b3
+    sleep 0.5
+  end
+  3.times do
+    play:b5
+    play:b4
+    sleep 0.5
+  end
+  play:a5
+  play:a4
+  sleep 0.25
+  play:b5
+  play:b4
+  sleep 0.5
+  3.times do
+    play:b5
+    play:b4
+    sleep 0.5
+  end
+  sleep 10000
+end
+3.times do
+  play wwbass
+  sleep 0.25
+end
+1.times do
+  sample wwoman
+  sleep 54
+end
+=end
