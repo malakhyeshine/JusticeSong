@@ -1,18 +1,25 @@
 use_bpm 120
 use_synth :piano
+#All my Arrays, they come from sheet music
 batman = [:a2,:d3,:e3,:a3]
 wonder = [:e4,:g4,:b4,:Bb4,:g4,:b4,:g4,:b4,:g4,:b4,:Bb4,:g4,:b4,:g4,:b4,:g4,:b4,:b4,:g4,:b4,:g4,:b4,:g4,:Bb4,]
 batman2 = [:a2,:d3,:e3,:c4]
 mos = [:b2,:c3,:d3,:c3,:b2,:c3,:d3,:e3,:d3,:c3,:b2,:c3,:b2]
+#The Sleep time Array for the Arrays
 slept = [0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,1]
 wait = [0.25,0.25,0.25,0.25,]
 wait2 = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+#All my custom samples in my song
 build = "C:/Users/malakhye_shine/Desktop/joker.wav"
 dank_knight = "C:/Users/malakhye_shine/Desktop/dank_knight.wav"
 wwoman = "C:/Users/malakhye_shine/Desktop/wonderwoman.wav"
 superman = "C:/Users/malakhye_shine/Desktop/Mos.wav"
 index = 0
-
+#My Variable for my randomness
+x = :misc_cineboom
+#The Intro is the Dark Knight theme
+=begin
+# Concurrent Playing live loop
 live_loop:dark_knight do
   play:d4,decay:1,amp:1
   play:a4,decay:1,amp:1
@@ -76,7 +83,8 @@ live_loop:dank_knight do
   sleep 10000
 end
 sleep 150
-
+=end
+#Wonder Woman portion begins
 use_bpm 80
 live_loop:wonder do
   24.times do
@@ -88,6 +96,7 @@ live_loop:wonder do
   play:b4, decay:1
   sleep 100000
 end
+#My Function for the Wonder Woman Bass
 define:wwbass do
   3.times do
     play:e1
@@ -165,12 +174,18 @@ end
   sample wwoman
   sleep 38
 end
-
+#The Beginning of the man of steel portion
 use_bpm 85
+# Here I used my randomness code to be my transition and I turned the sample in to a variable
+5.times do
+  sample x, rate: (rrand 0.125, 1.5)
+  sleep rrand(0.2, 2)
+end
 live_loop:superman do
   sample superman,amp:3
   sleep 100000
 end
+#My Parameterised Function
 define:superbass do |a,b,c|
   live_loop:mosbass do
     12.times do
